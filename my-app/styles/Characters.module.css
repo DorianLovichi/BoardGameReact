@@ -1,0 +1,48 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.createButton {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.createButton:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: var(--text-light);
+}
+
+.charactersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.2rem;
+  color: var(--text-light);
+}

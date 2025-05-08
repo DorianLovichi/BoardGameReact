@@ -1,0 +1,193 @@
+.gameBoard {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.boardContainer {
+  margin-bottom: 2rem;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.playerPosition {
+  border-color: var(--primary-color);
+  background-color: rgba(106, 76, 147, 0.1);
+  transform: translateY(-5px);
+}
+
+.visited {
+  opacity: 0.7;
+}
+
+.tileIndex {
+  font-size: 0.8rem;
+  font-weight: 600;
+  position: absolute;
+  top: 2px;
+  left: 5px;
+}
+
+.tileType {
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+
+.playerInfo {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.playerInfo h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+.diceSection {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.diceButton {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.diceButton:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.diceButton.rolling {
+  animation: roll 0.3s infinite alternate;
+}
+
+@keyframes roll {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+.eventCard {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.eventTitle {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.eventDescription {
+  margin-bottom: 1.5rem;
+}
+
+.eventChoices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.choiceButton {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.choiceButton:hover {
+  background-color: var(--primary-light);
+}
+
+.eventResult {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.eventResult.success {
+  border-left: 5px solid var(--success-color);
+}
+
+.eventResult.failure {
+  border-left: 5px solid var(--danger-color);
+}
+
+.eventResult h3 {
+  margin-bottom: 1rem;
+}
+
+.rewards {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.continueButton {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.continueButton:hover {
+  background-color: var(--primary-light);
+}
+
+.gameComplete {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 2rem;
+}

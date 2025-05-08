@@ -1,0 +1,120 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.goldCounter {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.goldIcon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.goldAmount {
+  font-weight: 600;
+  color: var(--secondary-dark);
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: var(--text-light);
+}
+
+.inventoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.itemCard {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.itemName {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.itemType {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.itemDescription {
+  margin-bottom: 1rem;
+}
+
+.itemStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.statItem {
+  background-color: #f8f9fa;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.itemActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.equipButton, .sellButton {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.equipButton {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.equipButton:hover {
+  background-color: var(--primary-light);
+}
+
+.sellButton {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.sellButton:hover {
+  background-color: var(--secondary-light);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.2rem;
+  color: var(--text-light);
+}

@@ -1,0 +1,118 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.charactersList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.characterCard {
+  background-color: var(--white);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.characterCard:hover {
+  border-color: var(--primary-light);
+  transform: translateY(-5px);
+}
+
+.characterCard.selected {
+  border-color: var(--primary-color);
+  background-color: rgba(106, 76, 147, 0.05);
+}
+
+.name {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.classLevel {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat {
+  text-align: center;
+  background-color: #f8f9fa;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.statName {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+
+.statValue {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.startButton {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.startButton:hover:not(:disabled) {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.startButton:disabled {
+  background-color: #e9ecef;
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.emptyMessage {
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.createButton {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  margin-top: 1.5rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.createButton:hover {
+  background-color: var(--primary-light);
+}
