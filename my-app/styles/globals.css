@@ -1,26 +1,26 @@
 :root {
-  /* Palette médiévale */
-  --primary-color: #7D3A16; /* Marron rougeâtre foncé (cuir) */
-  --primary-light: #9F5123; /* Marron clair */
-  --primary-dark: #5E280E; /* Marron très foncé */
-  --secondary-color: #BF9D4F; /* Or/laiton */
-  --secondary-light: #E6C975; /* Or clair */
-  --secondary-dark: #9E8035; /* Or foncé */
-  --background-color: #F3E9D6; /* Parchemin */
-  --text-color: #382716; /* Brun foncé */
-  --text-light: #6C5741; /* Brun moyen */
-  --border-color: #8B6E4C; /* Brun clair pour bordures */
-  --success-color: #2D6A3C; /* Vert forêt */
-  --danger-color: #8C1C1A; /* Rouge sang */
-  --white: #F9F4E6; /* Blanc cassé */
-  --black: #1A1108; /* Noir chaud */
-  --wood-dark: #5D4433; /* Bois foncé */
-  --wood-light: #8B6D57; /* Bois clair */
-  --stone: #9C9490; /* Pierre */
-  
+  /* Palette mÃ©diÃ©vale */
+  --primary-color: #7d3a16; /* Marron rougeÃ¢tre foncÃ© (cuir) */
+  --primary-light: #9f5123; /* Marron clair */
+  --primary-dark: #5e280e; /* Marron trÃ¨s foncÃ© */
+  --secondary-color: #bf9d4f; /* Or/laiton */
+  --secondary-light: #e6c975; /* Or clair */
+  --secondary-dark: #9e8035; /* Or foncÃ© */
+  --background-color: #f3e9d6; /* Parchemin */
+  --text-color: #382716; /* Brun foncÃ© */
+  --text-light: #6c5741; /* Brun moyen */
+  --border-color: #8b6e4c; /* Brun clair pour bordures */
+  --success-color: #2d6a3c; /* Vert forÃªt */
+  --danger-color: #8c1c1a; /* Rouge sang */
+  --white: #f9f4e6; /* Blanc cassÃ© */
+  --black: #1a1108; /* Noir chaud */
+  --wood-dark: #5d4433; /* Bois foncÃ© */
+  --wood-light: #8b6d57; /* Bois clair */
+  --stone: #9c9490; /* Pierre */
+
   /* Fonts */
-  --font-family: 'Cinzel', 'Palatino Linotype', serif;
-  --heading-font: 'MedievalSharp', 'Cinzel', serif;
+  --font-family: "Georgia", "Palatino Linotype", serif;
+  --heading-font: "Georgia", "Times New Roman", serif;
 }
 
 * {
@@ -29,8 +29,6 @@
   padding: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;600;800&display=swap');
-
 html,
 body {
   font-family: var(--font-family);
@@ -38,10 +36,14 @@ body {
   line-height: 1.5;
   color: var(--text-color);
   background-color: var(--background-color);
-  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--heading-font);
   font-weight: 600;
   margin-bottom: 1rem;
@@ -92,7 +94,9 @@ button:disabled {
   transform: none;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   font-family: var(--font-family);
   font-size: 1rem;
   padding: 0.7rem;
@@ -102,7 +106,9 @@ input, select, textarea {
   background-color: var(--white);
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 2px rgba(125, 58, 22, 0.25);
@@ -175,18 +181,17 @@ input:focus, select:focus, textarea:focus {
 
 .btn-danger {
   background-color: var(--danger-color);
-  border-color: #6B1512;
+  border-color: #6b1512;
   color: var(--white);
 }
 
 .btn-danger:hover {
-  background-color: #A52321;
+  background-color: #a52321;
 }
 
 /* Medieval decorations */
 .medieval-divider {
   height: 20px;
-  background-image: url('https://www.transparenttextures.com/patterns/binding-dark.png');
   border-top: 2px solid var(--primary-dark);
   border-bottom: 2px solid var(--primary-dark);
   margin: 1.5rem 0;
@@ -199,18 +204,6 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
   position: relative;
-}
-
-.medieval-container::before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
-  border: 1px solid var(--border-color);
-  border-radius: 3px;
-  pointer-events: none;
 }
 
 .medieval-title {

@@ -6,19 +6,6 @@
   padding: 2rem;
   margin-bottom: 2rem;
   position: relative;
-  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
-}
-
-.gameBoard::before {
-  content: "";
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  border: 1px solid var(--border-color);
-  border-radius: 3px;
-  pointer-events: none;
 }
 
 .boardContainer {
@@ -32,7 +19,6 @@
   margin-bottom: 1.5rem;
   padding: 1.5rem;
   background-color: var(--white);
-  background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
   border: 4px solid var(--wood-dark);
   border-radius: 8px;
   position: relative;
@@ -49,23 +35,9 @@
   justify-content: center;
   align-items: center;
   background-color: var(--white);
-  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
   transition: all 0.3s ease;
   position: relative;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.tile::before {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  right: 3px;
-  bottom: 3px;
-  border: 1px dotted var(--border-color);
-  border-radius: 4px;
-  opacity: 0.5;
-  pointer-events: none;
 }
 
 .playerPosition {
@@ -73,11 +45,10 @@
   background-color: rgba(125, 58, 22, 0.15);
   transform: translateY(-5px);
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
-  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
 }
 
 .playerPosition::after {
-  content: "?????";  /* Knight emoji */
+  content: "🧙‍♂️";
   font-size: 1.6rem;
   position: absolute;
   top: 50%;
@@ -90,7 +61,7 @@
 }
 
 .visited::after {
-  content: "??";  /* Footprints emoji */
+  content: "👣";
   font-size: 1rem;
   position: absolute;
   bottom: 5px;
@@ -109,43 +80,71 @@
 .tileType {
   font-size: 0.7rem;
   color: var(--text-light);
-  margin-top: 10px;  /* To make room for the emoji */
+  margin-top: 10px;
 }
 
-/* Add emoji based on tile type */
+/* Ajout d'icônes par type de case */
 .tile[data-type="combat"]::before {
-  content: "??";
+  content: "⚔️";
   font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .tile[data-type="treasure"]::before {
-  content: "??";
+  content: "💰";
   font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.tile[data-type="pi�ge"]::before {
-  content: "??";
+.tile[data-type="piège"]::before {
+  content: "⚠️";
   font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .tile[data-type="rencontre"]::before {
-  content: "??";
+  content: "👥";
   font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .tile[data-type="repos"]::before {
-  content: "???";
+  content: "🏕️";
   font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.tile[data-type="d�part"]::before {
-  content: "??";
+.tile[data-type="départ"]::before {
+  content: "🚩";
   font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.tile[data-type="arriv�e"]::before {
-  content: "??";
+.tile[data-type="arrivée"]::before {
+  content: "🏆";
   font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .playerInfo {
@@ -156,7 +155,6 @@
   border: 3px solid var(--wood-dark);
   position: relative;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
 }
 
 .playerInfo h3 {
@@ -186,18 +184,6 @@
   transition: all 0.3s ease;
   border: 3px solid var(--primary-dark);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.diceButton::before {
-  content: "??";
-  font-size: 2rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.2;
 }
 
 .diceButton:hover {
@@ -230,19 +216,6 @@
   border: 5px solid var(--primary-color);
   position: relative;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
-}
-
-.eventCard::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 3px;
-  pointer-events: none;
 }
 
 .eventTitle {
@@ -287,33 +260,12 @@
   font-size: 1.1rem;
   border: 2px solid var(--primary-dark);
   position: relative;
-  overflow: hidden;
-}
-
-.choiceButton::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: all 0.3s ease;
 }
 
 .choiceButton:hover {
   background-color: var(--primary-light);
   transform: translateY(-3px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.choiceButton:hover::before {
-  transform: translateX(100%);
-}
-
-.choiceButton:active {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .eventResult {
@@ -325,59 +277,14 @@
   border: 5px solid var(--primary-color);
   position: relative;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
-}
-
-.eventResult::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 3px;
-  pointer-events: none;
 }
 
 .eventResult.success {
   border-left: 8px solid var(--success-color);
 }
 
-.eventResult.success::after {
-  content: "?";
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  color: var(--success-color);
-  background-color: rgba(45, 106, 60, 0.1);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .eventResult.failure {
   border-left: 8px solid var(--danger-color);
-}
-
-.eventResult.failure::after {
-  content: "?";
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  color: var(--danger-color);
-  background-color: rgba(140, 28, 26, 0.1);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .eventResult h3 {
@@ -394,30 +301,6 @@
   border: 1px solid var(--secondary-color);
 }
 
-.rewards h4 {
-  color: var(--secondary-dark);
-  margin-bottom: 0.8rem;
-  position: relative;
-  display: inline-block;
-}
-
-.rewards h4::before,
-.rewards h4::after {
-  content: "?";
-  color: var(--secondary-color);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.rewards h4::before {
-  left: -20px;
-}
-
-.rewards h4::after {
-  right: -20px;
-}
-
 .continueButton {
   background-color: var(--primary-color);
   color: var(--white);
@@ -427,29 +310,12 @@
   transition: all 0.3s ease;
   font-size: 1.1rem;
   border: 2px solid var(--primary-dark);
-  position: relative;
-  overflow: hidden;
-}
-
-.continueButton::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: all 0.3s ease;
 }
 
 .continueButton:hover {
   background-color: var(--primary-light);
   transform: translateY(-3px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.continueButton:hover::before {
-  transform: translateX(100%);
 }
 
 .gameComplete {
@@ -461,8 +327,6 @@
   margin-top: 2rem;
   border: 5px double var(--secondary-dark);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  position: relative;
-  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
 }
 
 .gameComplete h3 {
@@ -473,7 +337,7 @@
 }
 
 .gameComplete::before {
-  content: "??";
+  content: "🏆";
   font-size: 3rem;
   display: block;
   margin-bottom: 1rem;
