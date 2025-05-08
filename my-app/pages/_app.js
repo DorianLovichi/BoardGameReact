@@ -2,6 +2,7 @@
 import "../styles/globals.css";
 import { AuthProvider } from "../contexts/AuthContext";
 import Layout from "../components/Layout";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   return (

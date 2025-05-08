@@ -1,9 +1,24 @@
 .gameBoard {
   background-color: var(--white);
+  border: 6px solid var(--wood-dark);
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   padding: 2rem;
   margin-bottom: 2rem;
+  position: relative;
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+}
+
+.gameBoard::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  pointer-events: none;
 }
 
 .boardContainer {
@@ -13,35 +28,73 @@
 .board {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.8rem;
   margin-bottom: 1.5rem;
-  padding: 1rem;
-  background-color: #f8f9fa;
+  padding: 1.5rem;
+  background-color: var(--white);
+  background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+  border: 4px solid var(--wood-dark);
   border-radius: 8px;
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .tile {
-  width: 60px;
-  height: 60px;
-  border: 2px solid var(--border-color);
+  width: 70px;
+  height: 70px;
+  border: 3px solid var(--border-color);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--white);
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
   transition: all 0.3s ease;
   position: relative;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tile::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border: 1px dotted var(--border-color);
+  border-radius: 4px;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .playerPosition {
   border-color: var(--primary-color);
-  background-color: rgba(106, 76, 147, 0.1);
+  background-color: rgba(125, 58, 22, 0.15);
   transform: translateY(-5px);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+}
+
+.playerPosition::after {
+  content: "?????";  /* Knight emoji */
+  font-size: 1.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .visited {
   opacity: 0.7;
+}
+
+.visited::after {
+  content: "??";  /* Footprints emoji */
+  font-size: 1rem;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
 
 .tileIndex {
@@ -50,144 +103,383 @@
   position: absolute;
   top: 2px;
   left: 5px;
+  color: var(--primary-dark);
 }
 
 .tileType {
   font-size: 0.7rem;
   color: var(--text-light);
+  margin-top: 10px;  /* To make room for the emoji */
+}
+
+/* Add emoji based on tile type */
+.tile[data-type="combat"]::before {
+  content: "??";
+  font-size: 1.2rem;
+}
+
+.tile[data-type="treasure"]::before {
+  content: "??";
+  font-size: 1.2rem;
+}
+
+.tile[data-type="piège"]::before {
+  content: "??";
+  font-size: 1.2rem;
+}
+
+.tile[data-type="rencontre"]::before {
+  content: "??";
+  font-size: 1.2rem;
+}
+
+.tile[data-type="repos"]::before {
+  content: "???";
+  font-size: 1.2rem;
+}
+
+.tile[data-type="départ"]::before {
+  content: "??";
+  font-size: 1.2rem;
+}
+
+.tile[data-type="arrivée"]::before {
+  content: "??";
+  font-size: 1.2rem;
 }
 
 .playerInfo {
-  background-color: #f8f9fa;
-  padding: 1rem;
+  background-color: var(--white);
+  padding: 1.2rem;
   border-radius: 8px;
   text-align: center;
+  border: 3px solid var(--wood-dark);
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
 }
 
 .playerInfo h3 {
   color: var(--primary-color);
   margin-bottom: 0.25rem;
+  font-size: 1.3rem;
 }
 
 .diceSection {
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
 }
 
 .diceButton {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
   background-color: var(--primary-color);
   color: var(--white);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  border: 3px solid var(--primary-dark);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.diceButton::before {
+  content: "??";
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
 }
 
 .diceButton:hover {
   background-color: var(--primary-light);
-  transform: translateY(-2px);
+  transform: translateY(-3px) rotate(5deg);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .diceButton.rolling {
   animation: roll 0.3s infinite alternate;
+  background-color: var(--secondary-color);
 }
 
 @keyframes roll {
   from {
-    transform: rotate(-10deg);
+    transform: rotate(-10deg) translateY(-5px);
+    box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.2);
   }
   to {
-    transform: rotate(10deg);
+    transform: rotate(10deg) translateY(-5px);
+    box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.2);
   }
 }
 
 .eventCard {
-  background-color: #f8f9fa;
+  background-color: var(--white);
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 1.8rem;
   margin-top: 2rem;
+  border: 5px solid var(--primary-color);
+  position: relative;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+}
+
+.eventCard::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  pointer-events: none;
 }
 
 .eventTitle {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
+  color: var(--primary-dark);
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.eventTitle::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background-color: var(--primary-color);
+  margin: 0.5rem auto 0;
 }
 
 .eventDescription {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-style: italic;
+  text-align: center;
 }
 
 .eventChoices {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.2rem;
   justify-content: center;
 }
 
 .choiceButton {
   background-color: var(--primary-color);
   color: var(--white);
-  padding: 0.75rem 1.5rem;
+  padding: 0.9rem 1.8rem;
   border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  border: 2px solid var(--primary-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.choiceButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: all 0.3s ease;
 }
 
 .choiceButton:hover {
   background-color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.choiceButton:hover::before {
+  transform: translateX(100%);
+}
+
+.choiceButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .eventResult {
-  background-color: #f8f9fa;
+  background-color: var(--white);
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 2rem;
   margin-top: 2rem;
   text-align: center;
+  border: 5px solid var(--primary-color);
+  position: relative;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+}
+
+.eventResult::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  pointer-events: none;
 }
 
 .eventResult.success {
-  border-left: 5px solid var(--success-color);
+  border-left: 8px solid var(--success-color);
+}
+
+.eventResult.success::after {
+  content: "?";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: var(--success-color);
+  background-color: rgba(45, 106, 60, 0.1);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .eventResult.failure {
-  border-left: 5px solid var(--danger-color);
+  border-left: 8px solid var(--danger-color);
+}
+
+.eventResult.failure::after {
+  content: "?";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: var(--danger-color);
+  background-color: rgba(140, 28, 26, 0.1);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .eventResult h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.6rem;
+  color: var(--primary-dark);
 }
 
 .rewards {
-  background-color: var(--white);
+  background-color: rgba(191, 157, 79, 0.2);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.2rem;
   margin: 1.5rem 0;
+  border: 1px solid var(--secondary-color);
+}
+
+.rewards h4 {
+  color: var(--secondary-dark);
+  margin-bottom: 0.8rem;
+  position: relative;
+  display: inline-block;
+}
+
+.rewards h4::before,
+.rewards h4::after {
+  content: "?";
+  color: var(--secondary-color);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.rewards h4::before {
+  left: -20px;
+}
+
+.rewards h4::after {
+  right: -20px;
 }
 
 .continueButton {
   background-color: var(--primary-color);
   color: var(--white);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   border-radius: 4px;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  border: 2px solid var(--primary-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.continueButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: all 0.3s ease;
 }
 
 .continueButton:hover {
   background-color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.continueButton:hover::before {
+  transform: translateX(100%);
 }
 
 .gameComplete {
   background-color: var(--secondary-color);
   color: var(--text-color);
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 8px;
   text-align: center;
   margin-top: 2rem;
+  border: 5px double var(--secondary-dark);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+}
+
+.gameComplete h3 {
+  color: var(--primary-dark);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.gameComplete::before {
+  content: "??";
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.gameComplete p {
+  font-size: 1.2rem;
+  font-style: italic;
 }

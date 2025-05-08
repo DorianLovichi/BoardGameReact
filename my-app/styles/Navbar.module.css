@@ -3,15 +3,19 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--white);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: var(--white);
 }
 
 .logo a {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--white);
   text-decoration: none;
+  font-family: var(--heading-font);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .navLinks {
@@ -21,15 +25,32 @@
 }
 
 .navLink {
-  color: var(--text-color);
+  color: var(--secondary-light);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
   cursor: pointer;
+  position: relative;
+  padding: 0.5rem 0;
 }
 
 .navLink:hover {
-  color: var(--primary-color);
+  color: var(--white);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
 }
 
 .userMenu {
@@ -41,12 +62,13 @@
 
 .username {
   font-weight: 500;
+  color: var(--secondary-light);
 }
 
 .logoutButton {
   background-color: transparent;
-  color: var(--danger-color);
-  border: 1px solid var(--danger-color);
+  color: var(--secondary-light);
+  border: 1px solid var(--secondary-light);
   padding: 0.25rem 0.75rem;
   border-radius: 4px;
   cursor: pointer;
@@ -54,6 +76,7 @@
 }
 
 .logoutButton:hover {
-  background-color: var(--danger-color);
-  color: var(--white);
+  background-color: var(--secondary-light);
+  color: var(--primary-dark);
+  border-color: var(--secondary-light);
 }

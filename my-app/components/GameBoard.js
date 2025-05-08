@@ -80,6 +80,7 @@ export default function GameBoard({ gameData, character, onComplete }) {
                 ${index === playerPosition ? styles.playerPosition : ""}
                 ${index < playerPosition ? styles.visited : ""}
               `}
+              data-type={tile.type}
             >
               <span className={styles.tileIndex}>{index + 1}</span>
               <span className={styles.tileType}>{tile.type}</span>

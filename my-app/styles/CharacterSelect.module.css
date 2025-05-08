@@ -1,48 +1,110 @@
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  position: relative;
 }
 
 .title {
   color: var(--primary-color);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   text-align: center;
+  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title::before,
+.title::after {
+  content: "??";
+  font-size: 1.3rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.title::before {
+  left: -40px;
+}
+
+.title::after {
+  right: -40px;
 }
 
 .charactersList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .characterCard {
   background-color: var(--white);
-  border: 2px solid var(--border-color);
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+  border: 3px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.characterCard::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px dotted var(--border-color);
+  border-radius: 4px;
+  pointer-events: none;
 }
 
 .characterCard:hover {
   border-color: var(--primary-light);
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .characterCard.selected {
   border-color: var(--primary-color);
-  background-color: rgba(106, 76, 147, 0.05);
+  background-color: rgba(125, 58, 22, 0.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.characterCard.selected::after {
+  content: "?";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  width: 25px;
+  height: 25px;
+  background-color: rgba(125, 58, 22, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .name {
   color: var(--primary-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 700;
 }
 
 .classLevel {
   color: var(--text-light);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-style: italic;
 }
 
 .stats {
@@ -52,67 +114,117 @@
 
 .stat {
   text-align: center;
-  background-color: #f8f9fa;
-  padding: 0.5rem;
-  border-radius: 4px;
+  background-color: rgba(248, 249, 250, 0.6);
+  padding: 0.6rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  width: 30%;
 }
 
 .statName {
   display: block;
   font-size: 0.8rem;
   color: var(--text-light);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
+  font-weight: 600;
 }
 
 .statValue {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--primary-color);
+  font-size: 1.1rem;
 }
 
 .actions {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .startButton {
   background-color: var(--primary-color);
   color: var(--white);
-  padding: 0.75rem 2rem;
-  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
   border-radius: 4px;
+  transition: all 0.4s ease;
+  border: 2px solid var(--primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.startButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: all 0.3s ease;
 }
 
 .startButton:hover:not(:disabled) {
   background-color: var(--primary-light);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+}
+
+.startButton:hover:not(:disabled)::before {
+  transform: translateX(100%);
+}
+
+.startButton:active:not(:disabled) {
   transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .startButton:disabled {
   background-color: #e9ecef;
   color: var(--text-light);
   cursor: not-allowed;
+  border-color: #d1d5db;
+  box-shadow: none;
 }
 
 .emptyMessage {
   text-align: center;
   padding: 3rem;
   background-color: var(--white);
+  background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--wood-dark);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.emptyMessage p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: var(--text-color);
 }
 
 .createButton {
   background-color: var(--primary-color);
   color: var(--white);
-  padding: 0.75rem 1.5rem;
+  padding: 0.9rem 1.8rem;
   border-radius: 4px;
   margin-top: 1.5rem;
   display: inline-block;
   transition: all 0.3s ease;
+  border: 2px solid var(--primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-family: var(--heading-font);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .createButton:hover {
   background-color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
